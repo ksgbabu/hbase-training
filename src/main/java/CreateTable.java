@@ -20,11 +20,30 @@ public class CreateTable {
         HBaseConfiguration conf = new HBaseConfiguration();
         HBaseAdmin admin = new HBaseAdmin(conf);
 
-        HTableDescriptor tbld = new HTableDescriptor(TableName.valueOf("dep"));
-        tbld.addFamily(new HColumnDescriptor("personal"));
-        tbld.addFamily(new HColumnDescriptor("professional"));
-        admin.createTable(tbld);
-        System.out.println("Table Created");
+        System.out.println(admin.tableExists(TableName.valueOf("emp2")));
+
+        //admin.deleteColumn("emp","contact_details");
+        //HColumnDescriptor cd = new HColumnDescriptor("contact_details");
+        //admin.addColumn("emp",cd);
+
+        //TableName[] names =  admin.listTableNames();
+
+        //for(TableName n : names){
+        //    System.out.println(n);
+        //}
+
+        //HTableDescriptor tbld = new HTableDescriptor(TableName.valueOf("dep2"));
+        //tbld.addFamily(new HColumnDescriptor("personal"));
+        //tbld.addFamily(new HColumnDescriptor("professional"));
+
+        //admin.createTable(tbld);
+        //System.out.println("Table Created");
+
+        // Verifying whether the table is disabled
+        //Boolean bool = admin.isTableEnabled("emp");
+        //System.out.println("Emp table enable status:"+bool);
+        System.out.println("Done..");
+
 
     }
 
